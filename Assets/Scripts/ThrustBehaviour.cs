@@ -22,15 +22,27 @@ public class ThrustBehaviour : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.Log(Input.mousePosition);
+
         if (Input.GetButton("Jump"))
         {
+            
             //Mouse posiition on screen
             Vector3 mousePosInScreen = Camera.main.WorldToScreenPoint(transform.position);
             //Direction to mouse and normalize direction
             Vector3 directionToMouse = Input.mousePosition - mousePosInScreen;
             directionToMouse.Normalize();
+
+            //Create a rotation from the player's forward to the look direction
+            Quaternion rotation = Quaternion.LookRotation(directionToMouse);
+            //Set the rotation to be the new rotation found
+            directionToMouse.z = 0;
+            transform.rotation *= Quaternion.FromToRotation(transform.up, directionToMouse);
+            //Rocket thrusted towards the direction of mouse on screen when jumping.
             _rigidBody.AddForce(directionToMouse * _thrustPower, ForceMode.Impulse);
         }
+
+        
 
     }
 }
