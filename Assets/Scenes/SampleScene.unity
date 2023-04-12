@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.63650703, g: 0.39043468, b: 0.51307726, a: 1}
+  m_IndirectSpecularColor: {r: 0.6365055, g: 0.39043394, b: 0.51307356, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -134,9 +134,10 @@ GameObject:
   - component: {fileID: 317430248}
   - component: {fileID: 317430247}
   - component: {fileID: 317430246}
+  - component: {fileID: 317430249}
   m_Layer: 0
   m_Name: Rocket
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +187,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &317430249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317430245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f456d7eaadc8be9468506e8e0dd90376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _greenPad: 0
+  _yellowPad: 0
+  _redPad: 0
+  _ground: 0
+  _rigidBody: {fileID: 317430247}
 --- !u!1 &446906304
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +216,7 @@ GameObject:
   - component: {fileID: 446906307}
   - component: {fileID: 446906306}
   - component: {fileID: 446906305}
+  - component: {fileID: 446906309}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Ground
@@ -282,6 +301,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &446906309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446906304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f456d7eaadc8be9468506e8e0dd90376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _greenPad: 0
+  _yellowPad: 0
+  _redPad: 0
+  _ground: 1
+  _rigidBody: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +423,7 @@ GameObject:
   - component: {fileID: 876413761}
   - component: {fileID: 876413760}
   - component: {fileID: 876413759}
+  - component: {fileID: 876413763}
   m_Layer: 0
   m_Name: Yellow Landing Pad
   m_TagString: LandingPad
@@ -470,6 +507,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &876413763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876413758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f456d7eaadc8be9468506e8e0dd90376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _greenPad: 0
+  _yellowPad: 1
+  _redPad: 0
+  _ground: 0
+  _rigidBody: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +730,7 @@ GameObject:
   - component: {fileID: 1525510361}
   - component: {fileID: 1525510360}
   - component: {fileID: 1525510359}
+  - component: {fileID: 1525510363}
   m_Layer: 0
   m_Name: Red Landing Pad
   m_TagString: LandingPad
@@ -759,6 +814,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1525510363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525510358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f456d7eaadc8be9468506e8e0dd90376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _greenPad: 0
+  _yellowPad: 0
+  _redPad: 1
+  _ground: 0
+  _rigidBody: {fileID: 0}
 --- !u!1 &1596443031
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1063,7 @@ GameObject:
   - component: {fileID: 2102877417}
   - component: {fileID: 2102877416}
   - component: {fileID: 2102877415}
+  - component: {fileID: 2102877419}
   m_Layer: 0
   m_Name: Green Landing Pad
   m_TagString: LandingPad
@@ -1074,3 +1147,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2102877419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102877414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f456d7eaadc8be9468506e8e0dd90376, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _greenPad: 1
+  _yellowPad: 0
+  _redPad: 0
+  _ground: 0
+  _rigidBody: {fileID: 0}
