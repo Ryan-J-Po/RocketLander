@@ -16,12 +16,14 @@ public class LandingBehaviour : MonoBehaviour
 
     private bool _crash = false;
 
+    [Tooltip("The variable that will be used to determine and display the player's score at the Game Over Screen.")]
     private float _score = 100;
 
     [SerializeField]
     private Rigidbody _rigidBody;
 
-    public GameOverBehaviour gameOverBehaviour;
+    [SerializeField]
+    private GameOverBehaviour gameOverBehaviour;
 
 
     private void Awake()

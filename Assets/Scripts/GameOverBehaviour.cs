@@ -7,7 +7,8 @@ using TMPro;
 
 public class GameOverBehaviour : MonoBehaviour
 {
-    public TextMeshProUGUI ScoreText;
+    [SerializeField]
+    private TextMeshProUGUI ScoreText;
 
     public void Setup(float score)
     {
