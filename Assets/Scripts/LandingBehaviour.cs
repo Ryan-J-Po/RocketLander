@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LandingBehaviour : MonoBehaviour
 {
@@ -15,61 +16,71 @@ public class LandingBehaviour : MonoBehaviour
 
     private bool _crash = false;
 
-    private float _score = 1;
+    private float _score = 100;
 
-    public Rigidbody _rigidBody;
+    [SerializeField]
+    private Rigidbody _rigidBody;
+
+    public GameOverBehaviour gameOverBehaviour;
 
 
-    private void Start()
+    private void Awake()
     {
-        //_rigidBody = GetComponent<Rigidbody>();
+        _rigidBody = GetComponent<Rigidbody>();
     }
 
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("A collision has occurred.");
-
-        _rigidBody = GetComponent<Rigidbody>();
-        _rigidBody.isKinematic = false;
-
-        if (!collision.gameObject.CompareTag("LandingPad") || !collision.gameObject.CompareTag("Ground"))
-        {
-            return;
-        }
+        Debug.Log("A collision has occurred, Non-Specific");
 
         if (collision.gameObject.transform.rotation.z >= 45 || collision.gameObject.transform.rotation.z <= -45)
         {
+            _rigidBody.isKinematic = true;
             _crash = true;
-            //Display GameOver
+            if (_crash)
+            {
+                gameOverBehaviour.Setup(0);
+            }
         }
 
         if (collision.gameObject.CompareTag("LandingPad"))
         {
-            if (_greenPad)
-            {
-                Debug.Log("Green Landing Pad Found."); 
-                _score *= 2;      
-            }
+            Debug.Log("Landing Pad Collision Detected.");
+            _rigidBody.isKinematic = true;
+            _score *= 2;
+            gameOverBehaviour.Setup(_score);
 
-            if (_yellowPad)
-            {
-                Debug.Log("Yellow Landing Pad Found.");
-                _score *= 3;
-            }
+            //if (_greenPad)
+            //{
+            //    Debug.Log("Green Landing Pad Found.");
+            //    _score *= 2;
+            //    gameOverBehaviour.Setup(_score);
+            //}
 
-            if (_redPad)
-            {
-                Debug.Log("Red Landing Pad Found.");
-                _score *= 5;
-            }
+            //if (_yellowPad)
+            //{
+            //    Debug.Log("Yellow Landing Pad Found.");
+            //    _score *= 3;
+            //    gameOverBehaviour.Setup(_score);
+            //}
+
+            //if (_redPad)
+            //{
+            //    Debug.Log("Red Landing Pad Found.");
+            //    _score *= 5;
+            //    gameOverBehaviour.Setup(_score);
+            //}
         }
 
         if (collision.gameObject.CompareTag("Ground"))
         {
             Debug.Log("Ground Found.");
+            _rigidBody.isKinematic = true;
             _score *= 1;
+            gameOverBehaviour.Setup(_score);
         }
 
+        
     }
 }
